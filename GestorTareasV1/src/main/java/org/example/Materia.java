@@ -16,7 +16,6 @@ public class Materia {
 
      this.nombre = nombre;
      trabajos = new ArrayList<>();
-
     }
 
     public String getNombre() {
@@ -40,17 +39,18 @@ public class Materia {
 
     public void mostrarTrabajos(){
 
-        System.out.println("-----------\nMateria: " + nombre);
-        int contador = 1;
-        for(Trabajo trabajo : trabajos){
-
-            System.out.println("-Descripcion del trabajo "+contador+": " + trabajo.getDescripcion());
-            System.out.println("Fecha Entrega: " + trabajo.getFechaEntrega()+"\n");
-            contador ++;
+        if (trabajos.isEmpty()){
+            System.out.println("\nNo Hay Trabajos Resgistrados para Esta Materia");
+            return;
 
         }
 
+            System.out.println("--------------------\nDesglose Trabajos de "+ nombre +".");
+            for(int i = 0; i< trabajos.size(); i++){
+
+                System.out.println("-Descripcion del trabajo "+ i +": " + trabajos.get(i).getDescripcion());
+                System.out.println("Fecha Entrega: " + trabajos.get(i).getFechaEntrega()+"\n");
+                System.out.println("----------------");
+            }
     }
-
-
 }

@@ -14,33 +14,30 @@ public class Arranque{
 
           while(!salir){
 
-              System.out.println("--Bienvenido al Gestor De Tareas--\n" +
+              System.out.println("\n--Bienvenido al Gestor De Tareas--\n" +
                       "1.Agregar Materias\n2.Agregar Trabajos\n3.Consultar" +
-                      "\n4.Salir: ");
+                      "\n4.Salir ");
 
               String opcion = entry.nextLine();
 
               switch (opcion){
 
                   case "1":
-
-                          agregarMateria();
+                      agregarMateria();
                       break;
 
                   case "2":
-
                       agregarTrabajo();
                       break;
 
                   case "3":
                       consultarTrabajos();
                       break;
-                  case "4":
 
+                  case "4":
                       System.out.println("\nSee You Soon !!\n");
                       entry.close();
                       salir = true;
-
                       break;
 
                   default:
@@ -57,6 +54,7 @@ public class Arranque{
         String nombreMateria = entry.nextLine();
 
         try{
+
             Materia m = new Materia(nombreMateria);
             materias.add(m);
 
@@ -73,7 +71,9 @@ public class Arranque{
 
             System.out.println("No existen Materias");
 
-        }else{
+            return;
+
+        }
 
             System.out.println("--Lista De Materias--");
             int contador = 0;
@@ -105,9 +105,9 @@ public class Arranque{
 
                 System.out.println("La Materia elegida no Existe");
             }
-            /*System.out.println(materias.get(0).getNombre());*/
 
-        }
+
+
 
     }
 
@@ -116,14 +116,15 @@ public class Arranque{
         if(materias == null || materias.isEmpty()){
 
             System.out.println("No Existen Materias Resgistradas");
-
-        }else{
+            return;
+        }
 
             System.out.println("Consulta Trabajos de las Materias");
 
-            for(Materia materia : materias){
-                int contador = 0;
-                System.out.println(contador+"."+ materia.getNombre() );
+            for(int i = 0; i< materias.size(); i++){
+
+                System.out.println(i+"."+ materias.get(i).getNombre() );
+
             }
 
             int consultaEleccion = entry.nextInt();
@@ -135,16 +136,14 @@ public class Arranque{
 
             }catch(IndexOutOfBoundsException e){
 
-                System.out.println("Error Dato No Valido");
-
+                System.out.println("Materia no Existente");
             }
-
 
         }
 
     }
 
-}
+
 
 
 

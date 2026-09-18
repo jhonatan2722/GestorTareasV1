@@ -4,7 +4,7 @@ public class Trabajo{
 
     private String descripcion;
     private String fechaEntrega;
-    private Materia materia;
+
 
     public Trabajo(String descripcion, String fechaEntrega, Materia materia){
 
@@ -17,9 +17,10 @@ public class Trabajo{
 
             throw  new IllegalArgumentException("Fecha De Entrega Vacia");
         }
+
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
-        this.materia = materia;
+
     }
 
     public String getDescripcion() {
@@ -38,9 +39,7 @@ public class Trabajo{
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Materia getMateria() {
-        return materia;
-    }
+
 
 
 }
